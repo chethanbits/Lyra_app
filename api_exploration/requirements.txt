@@ -19,3 +19,5 @@ tabulate
 # Geocoding (city -> lat/lon) and timezone lookup - used by pyjhora_api
 geopy
 timezonefinder
+# Required by PyJHora (jhora.utils)
+geocoder

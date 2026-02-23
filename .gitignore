@@ -1,5 +1,20 @@
 # Python
 api_exploration/venv/
+api_exploration/__pycache__/
+# api_exploration: keep only pyjhora_api.py + requirements.txt for deploy
+api_exploration/config.py
+api_exploration/utils.py
+api_exploration/*_output*.json
+api_exploration/*_sample*.json
+api_exploration/prokerala_token.json
+api_exploration/run_all_tests.py
+api_exploration/save_prokerala_output.py
+api_exploration/test_*.py
+api_exploration/API_Comparison_Report.txt
+api_exploration/transits_*.json
+api_exploration/pyjhora_28year_positions.json
+api_exploration/pyjhora_api_*_output.json
+api_exploration/pyjhora_api_fixed_output.json
 __pycache__/
 *.py[cod]
 *$py.class

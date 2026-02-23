@@ -1,0 +1,12 @@
+# Keep only pyjhora_api.py + requirements.txt in repo for Render deploy
+venv/
+__pycache__/
+config.py
+utils.py
+*_output*.json
+*_sample*.json
+prokerala_token.json
+run_all_tests.py
+save_prokerala_output.py
+test_*.py
+API_Comparison_Report.txt

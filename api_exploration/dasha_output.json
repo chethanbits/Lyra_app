@@ -1,0 +1,582 @@
+{
+  "status": "ok",
+  "input": {
+    "date_of_birth": "1968-10-06",
+    "time_of_birth": "05:35:00",
+    "latitude": 28.6139,
+    "longitude": 77.209,
+    "timezone": 5.5
+  },
+  "dasha_balance_at_birth_days": "(4, 2, 7)",
+  "note": "Vimshottari Dasha based on Moon's Nakshatra at birth. 9 Mahadashas = 120 years total.",
+  "total_mahadashas": 9,
+  "mahadashas": [
+    {
+      "lord_id": 6,
+      "lord": "Saturn (Shani)",
+      "total_years": 19,
+      "start_date": "1953-12-13 14:48:09",
+      "antardashas": [
+        {
+          "lord_id": 6,
+          "lord": "Saturn (Shani)",
+          "start_date": "1953-12-13 14:48:09",
+          "end_date": "1956-12-16 10:18:43"
+        },
+        {
+          "lord_id": 3,
+          "lord": "Mercury (Budha)",
+          "start_date": "1956-12-16 10:18:43",
+          "end_date": "1959-08-26 13:52:23"
+        },
+        {
+          "lord_id": 8,
+          "lord": "Ketu",
+          "start_date": "1959-08-26 13:52:23",
+          "end_date": "1960-10-04 09:41:32"
+        },
+        {
+          "lord_id": 5,
+          "lord": "Venus (Shukra)",
+          "start_date": "1960-10-04 09:41:32",
+          "end_date": "1963-12-05 01:10:33"
+        },
+        {
+          "lord_id": 0,
+          "lord": "Sun (Surya)",
+          "start_date": "1963-12-05 01:10:33",
+          "end_date": "1964-11-16 01:01:16"
+        },
+        {
+          "lord_id": 1,
+          "lord": "Moon (Chandra)",
+          "start_date": "1964-11-16 01:01:16",
+          "end_date": "1966-06-17 08:45:46"
+        },
+        {
+          "lord_id": 2,
+          "lord": "Mars (Mangal)",
+          "start_date": "1966-06-17 08:45:46",
+          "end_date": "1967-07-27 04:34:56"
+        },
+        {
+          "lord_id": 7,
+          "lord": "Rahu",
+          "start_date": "1967-07-27 04:34:56",
+          "end_date": "1970-06-02 04:07:03"
+        },
+        {
+          "lord_id": 4,
+          "lord": "Jupiter (Guru)",
+          "start_date": "1970-06-02 04:07:03",
+          "end_date": "1972-12-13 11:42:16"
+        }
+      ],
+      "end_date": "1972-12-13 11:42:16"
+    },
+    {
+      "lord_id": 3,
+      "lord": "Mercury (Budha)",
+      "total_years": 17,
+      "start_date": "1972-12-13 11:42:16",
+      "antardashas": [
+        {
+          "lord_id": 3,
+          "lord": "Mercury (Budha)",
+          "start_date": "1972-12-13 11:42:16",
+          "end_date": "1975-05-12 03:31:20"
+        },
+        {
+          "lord_id": 8,
+          "lord": "Ketu",
+          "start_date": "1975-05-12 03:31:20",
+          "end_date": "1976-05-08 08:37:25"
+        },
+        {
+          "lord_id": 5,
+          "lord": "Venus (Shukra)",
+          "start_date": "1976-05-08 08:37:25",
+          "end_date": "1979-03-09 06:03:23"
+        },
+        {
+          "lord_id": 0,
+          "lord": "Sun (Surya)",
+          "start_date": "1979-03-09 06:03:23",
+          "end_date": "1980-01-13 17:17:11"
+        },
+        {
+          "lord_id": 1,
+          "lord": "Moon (Chandra)",
+          "start_date": "1980-01-13 17:17:11",
+          "end_date": "1981-06-14 04:00:09"
+        },
+        {
+          "lord_id": 2,
+          "lord": "Mars (Mangal)",
+          "start_date": "1981-06-14 04:00:09",
+          "end_date": "1982-06-11 09:06:15"
+        },
+        {
+          "lord_id": 7,
+          "lord": "Rahu",
+          "start_date": "1982-06-11 09:06:15",
+          "end_date": "1984-12-28 18:47:37"
+        },
+        {
+          "lord_id": 4,
+          "lord": "Jupiter (Guru)",
+          "start_date": "1984-12-28 18:47:37",
+          "end_date": "1987-04-05 16:44:23"
+        },
+        {
+          "lord_id": 6,
+          "lord": "Saturn (Shani)",
+          "start_date": "1987-04-05 16:44:23",
+          "end_date": "1989-12-13 20:18:03"
+        }
+      ],
+      "end_date": "1989-12-13 20:18:03"
+    },
+    {
+      "lord_id": 8,
+      "lord": "Ketu",
+      "total_years": 7,
+      "start_date": "1989-12-13 20:18:03",
+      "antardashas": [
+        {
+          "lord_id": 8,
+          "lord": "Ketu",
+          "start_date": "1989-12-13 20:18:03",
+          "end_date": "1990-05-11 23:48:48"
+        },
+        {
+          "lord_id": 5,
+          "lord": "Venus (Shukra)",
+          "start_date": "1990-05-11 23:48:48",
+          "end_date": "1991-07-12 02:59:29"
+        },
+        {
+          "lord_id": 0,
+          "lord": "Sun (Surya)",
+          "start_date": "1991-07-12 02:59:29",
+          "end_date": "1991-11-16 23:08:42"
+        },
+        {
+          "lord_id": 1,
+          "lord": "Moon (Chandra)",
+          "start_date": "1991-11-16 23:08:42",
+          "end_date": "1992-06-17 00:44:02"
+        },
+        {
+          "lord_id": 2,
+          "lord": "Mars (Mangal)",
+          "start_date": "1992-06-17 00:44:02",
+          "end_date": "1992-11-13 04:14:47"
+        },
+        {
+          "lord_id": 7,
+          "lord": "Rahu",
+          "start_date": "1992-11-13 04:14:47",
+          "end_date": "1993-12-01 16:42:24"
+        },
+        {
+          "lord_id": 4,
+          "lord": "Jupiter (Guru)",
+          "start_date": "1993-12-01 16:42:24",
+          "end_date": "1994-11-07 14:26:57"
+        },
+        {
+          "lord_id": 6,
+          "lord": "Saturn (Shani)",
+          "start_date": "1994-11-07 14:26:57",
+          "end_date": "1995-12-17 10:16:07"
+        },
+        {
+          "lord_id": 3,
+          "lord": "Mercury (Budha)",
+          "start_date": "1995-12-17 10:16:07",
+          "end_date": "1996-12-13 15:22:12"
+        }
+      ],
+      "end_date": "1996-12-13 15:22:12"
+    },
+    {
+      "lord_id": 5,
+      "lord": "Venus (Shukra)",
+      "total_years": 20,
+      "start_date": "1996-12-13 15:22:12",
+      "antardashas": [
+        {
+          "lord_id": 5,
+          "lord": "Venus (Shukra)",
+          "start_date": "1996-12-13 15:22:12",
+          "end_date": "2000-04-14 03:52:45"
+        },
+        {
+          "lord_id": 0,
+          "lord": "Sun (Surya)",
+          "start_date": "2000-04-14 03:52:45",
+          "end_date": "2001-04-14 10:01:55"
+        },
+        {
+          "lord_id": 1,
+          "lord": "Moon (Chandra)",
+          "start_date": "2001-04-14 10:01:55",
+          "end_date": "2002-12-14 04:17:11"
+        },
+        {
+          "lord_id": 2,
+          "lord": "Mars (Mangal)",
+          "start_date": "2002-12-14 04:17:11",
+          "end_date": "2004-02-13 07:27:53"
+        },
+        {
+          "lord_id": 7,
+          "lord": "Rahu",
+          "start_date": "2004-02-13 07:27:53",
+          "end_date": "2007-02-13 01:55:22"
+        },
+        {
+          "lord_id": 4,
+          "lord": "Jupiter (Guru)",
+          "start_date": "2007-02-13 01:55:22",
+          "end_date": "2009-10-14 02:19:49"
+        },
+        {
+          "lord_id": 6,
+          "lord": "Saturn (Shani)",
+          "start_date": "2009-10-14 02:19:49",
+          "end_date": "2012-12-13 17:48:50"
+        },
+        {
+          "lord_id": 3,
+          "lord": "Mercury (Budha)",
+          "start_date": "2012-12-13 17:48:50",
+          "end_date": "2015-10-14 15:14:48"
+        },
+        {
+          "lord_id": 8,
+          "lord": "Ketu",
+          "start_date": "2015-10-14 15:14:48",
+          "end_date": "2016-12-13 18:25:29"
+        }
+      ],
+      "end_date": "2016-12-13 18:25:29"
+    },
+    {
+      "lord_id": 0,
+      "lord": "Sun (Surya)",
+      "total_years": 6,
+      "start_date": "2016-12-13 18:25:29",
+      "antardashas": [
+        {
+          "lord_id": 0,
+          "lord": "Sun (Surya)",
+          "start_date": "2016-12-13 18:25:29",
+          "end_date": "2017-04-02 08:16:14"
+        },
+        {
+          "lord_id": 1,
+          "lord": "Moon (Chandra)",
+          "start_date": "2017-04-02 08:16:14",
+          "end_date": "2017-10-01 23:20:49"
+        },
+        {
+          "lord_id": 2,
+          "lord": "Mars (Mangal)",
+          "start_date": "2017-10-01 23:20:49",
+          "end_date": "2018-02-06 19:30:01"
+        },
+        {
+          "lord_id": 7,
+          "lord": "Rahu",
+          "start_date": "2018-02-06 19:30:01",
+          "end_date": "2019-01-01 13:02:16"
+        },
+        {
+          "lord_id": 4,
+          "lord": "Jupiter (Guru)",
+          "start_date": "2019-01-01 13:02:16",
+          "end_date": "2019-10-20 17:57:36"
+        },
+        {
+          "lord_id": 6,
+          "lord": "Saturn (Shani)",
+          "start_date": "2019-10-20 17:57:36",
+          "end_date": "2020-10-01 17:48:19"
+        },
+        {
+          "lord_id": 3,
+          "lord": "Mercury (Budha)",
+          "start_date": "2020-10-01 17:48:19",
+          "end_date": "2021-08-08 05:02:06"
+        },
+        {
+          "lord_id": 8,
+          "lord": "Ketu",
+          "start_date": "2021-08-08 05:02:06",
+          "end_date": "2021-12-14 01:11:18"
+        },
+        {
+          "lord_id": 5,
+          "lord": "Venus (Shukra)",
+          "start_date": "2021-12-14 01:11:18",
+          "end_date": "2022-12-14 07:20:28"
+        }
+      ],
+      "end_date": "2022-12-14 07:20:28"
+    },
+    {
+      "lord_id": 1,
+      "lord": "Moon (Chandra)",
+      "total_years": 10,
+      "start_date": "2022-12-14 07:20:28",
+      "antardashas": [
+        {
+          "lord_id": 1,
+          "lord": "Moon (Chandra)",
+          "start_date": "2022-12-14 07:20:28",
+          "end_date": "2023-10-14 16:28:06"
+        },
+        {
+          "lord_id": 2,
+          "lord": "Mars (Mangal)",
+          "start_date": "2023-10-14 16:28:06",
+          "end_date": "2024-05-14 18:03:27"
+        },
+        {
+          "lord_id": 7,
+          "lord": "Rahu",
+          "start_date": "2024-05-14 18:03:27",
+          "end_date": "2025-11-13 15:17:12"
+        },
+        {
+          "lord_id": 4,
+          "lord": "Jupiter (Guru)",
+          "start_date": "2025-11-13 15:17:12",
+          "end_date": "2027-03-15 15:29:25"
+        },
+        {
+          "lord_id": 6,
+          "lord": "Saturn (Shani)",
+          "start_date": "2027-03-15 15:29:25",
+          "end_date": "2028-10-13 23:13:56"
+        },
+        {
+          "lord_id": 3,
+          "lord": "Mercury (Budha)",
+          "start_date": "2028-10-13 23:13:56",
+          "end_date": "2030-03-15 09:56:55"
+        },
+        {
+          "lord_id": 8,
+          "lord": "Ketu",
+          "start_date": "2030-03-15 09:56:55",
+          "end_date": "2030-10-14 11:32:15"
+        },
+        {
+          "lord_id": 5,
+          "lord": "Venus (Shukra)",
+          "start_date": "2030-10-14 11:32:15",
+          "end_date": "2032-06-14 05:47:32"
+        },
+        {
+          "lord_id": 0,
+          "lord": "Sun (Surya)",
+          "start_date": "2032-06-14 05:47:32",
+          "end_date": "2032-12-13 20:52:07"
+        }
+      ],
+      "end_date": "2032-12-13 20:52:07"
+    },
+    {
+      "lord_id": 2,
+      "lord": "Mars (Mangal)",
+      "total_years": 7,
+      "start_date": "2032-12-13 20:52:07",
+      "antardashas": [
+        {
+          "lord_id": 2,
+          "lord": "Mars (Mangal)",
+          "start_date": "2032-12-13 20:52:07",
+          "end_date": "2033-05-12 00:22:51"
+        },
+        {
+          "lord_id": 7,
+          "lord": "Rahu",
+          "start_date": "2033-05-12 00:22:51",
+          "end_date": "2034-05-30 12:50:29"
+        },
+        {
+          "lord_id": 4,
+          "lord": "Jupiter (Guru)",
+          "start_date": "2034-05-30 12:50:29",
+          "end_date": "2035-05-06 10:35:02"
+        },
+        {
+          "lord_id": 6,
+          "lord": "Saturn (Shani)",
+          "start_date": "2035-05-06 10:35:02",
+          "end_date": "2036-06-14 06:24:11"
+        },
+        {
+          "lord_id": 3,
+          "lord": "Mercury (Budha)",
+          "start_date": "2036-06-14 06:24:11",
+          "end_date": "2037-06-11 11:30:16"
+        },
+        {
+          "lord_id": 8,
+          "lord": "Ketu",
+          "start_date": "2037-06-11 11:30:16",
+          "end_date": "2037-11-07 15:01:01"
+        },
+        {
+          "lord_id": 5,
+          "lord": "Venus (Shukra)",
+          "start_date": "2037-11-07 15:01:01",
+          "end_date": "2039-01-07 18:11:42"
+        },
+        {
+          "lord_id": 0,
+          "lord": "Sun (Surya)",
+          "start_date": "2039-01-07 18:11:42",
+          "end_date": "2039-05-15 14:20:55"
+        },
+        {
+          "lord_id": 1,
+          "lord": "Moon (Chandra)",
+          "start_date": "2039-05-15 14:20:55",
+          "end_date": "2039-12-14 15:56:16"
+        }
+      ],
+      "end_date": "2039-12-14 15:56:16"
+    },
+    {
+      "lord_id": 7,
+      "lord": "Rahu",
+      "total_years": 18,
+      "start_date": "2039-12-14 15:56:16",
+      "antardashas": [
+        {
+          "lord_id": 7,
+          "lord": "Rahu",
+          "start_date": "2039-12-14 15:56:16",
+          "end_date": "2042-08-26 20:33:00"
+        },
+        {
+          "lord_id": 4,
+          "lord": "Jupiter (Guru)",
+          "start_date": "2042-08-26 20:33:00",
+          "end_date": "2045-01-19 11:19:00"
+        },
+        {
+          "lord_id": 6,
+          "lord": "Saturn (Shani)",
+          "start_date": "2045-01-19 11:19:00",
+          "end_date": "2047-11-26 10:51:07"
+        },
+        {
+          "lord_id": 3,
+          "lord": "Mercury (Budha)",
+          "start_date": "2047-11-26 10:51:07",
+          "end_date": "2050-06-14 20:32:29"
+        },
+        {
+          "lord_id": 8,
+          "lord": "Ketu",
+          "start_date": "2050-06-14 20:32:29",
+          "end_date": "2051-07-03 09:00:06"
+        },
+        {
+          "lord_id": 5,
+          "lord": "Venus (Shukra)",
+          "start_date": "2051-07-03 09:00:06",
+          "end_date": "2054-07-03 03:27:36"
+        },
+        {
+          "lord_id": 0,
+          "lord": "Sun (Surya)",
+          "start_date": "2054-07-03 03:27:36",
+          "end_date": "2055-05-27 20:59:51"
+        },
+        {
+          "lord_id": 1,
+          "lord": "Moon (Chandra)",
+          "start_date": "2055-05-27 20:59:51",
+          "end_date": "2056-11-25 18:13:36"
+        },
+        {
+          "lord_id": 2,
+          "lord": "Mars (Mangal)",
+          "start_date": "2056-11-25 18:13:36",
+          "end_date": "2057-12-14 06:41:13"
+        }
+      ],
+      "end_date": "2057-12-14 06:41:13"
+    },
+    {
+      "lord_id": 4,
+      "lord": "Jupiter (Guru)",
+      "total_years": 16,
+      "start_date": "2057-12-14 06:41:13",
+      "antardashas": [
+        {
+          "lord_id": 4,
+          "lord": "Jupiter (Guru)",
+          "start_date": "2057-12-14 06:41:13",
+          "end_date": "2060-02-01 11:48:46"
+        },
+        {
+          "lord_id": 6,
+          "lord": "Saturn (Shani)",
+          "start_date": "2060-02-01 11:48:46",
+          "end_date": "2062-08-14 19:23:59"
+        },
+        {
+          "lord_id": 3,
+          "lord": "Mercury (Budha)",
+          "start_date": "2062-08-14 19:23:59",
+          "end_date": "2064-11-19 17:20:45"
+        },
+        {
+          "lord_id": 8,
+          "lord": "Ketu",
+          "start_date": "2064-11-19 17:20:45",
+          "end_date": "2065-10-26 15:05:18"
+        },
+        {
+          "lord_id": 5,
+          "lord": "Venus (Shukra)",
+          "start_date": "2065-10-26 15:05:18",
+          "end_date": "2068-06-26 15:29:45"
+        },
+        {
+          "lord_id": 0,
+          "lord": "Sun (Surya)",
+          "start_date": "2068-06-26 15:29:45",
+          "end_date": "2069-04-14 20:25:05"
+        },
+        {
+          "lord_id": 1,
+          "lord": "Moon (Chandra)",
+          "start_date": "2069-04-14 20:25:05",
+          "end_date": "2070-08-14 20:37:18"
+        },
+        {
+          "lord_id": 2,
+          "lord": "Mars (Mangal)",
+          "start_date": "2070-08-14 20:37:18",
+          "end_date": "2071-07-21 18:21:51"
+        },
+        {
+          "lord_id": 7,
+          "lord": "Rahu",
+          "start_date": "2071-07-21 18:21:51",
+          "end_date": "end of 120-year cycle"
+        }
+      ],
+      "end_date": "end of 120-year cycle"
+    }
+  ]
+}

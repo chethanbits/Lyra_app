@@ -1,0 +1,92 @@
+{
+  "status": "ok",
+  "input": {
+    "date": "1990-05-15",
+    "time": "10:30:00",
+    "latitude": 13.0721,
+    "longitude": 80.2019,
+    "timezone": 5.5,
+    "ayanamsa": "Lahiri",
+    "house_system": "Equal"
+  },
+  "ascendant": {
+    "longitude": 96.8004,
+    "sign": "Kataka/Cancer",
+    "sign_number": 4,
+    "degrees_in_sign": 6.8004
+  },
+  "planet_positions": [
+    {
+      "planet": "Sun",
+      "longitude": 30.6157,
+      "sign": "Vrishabha/Taurus",
+      "sign_number": 2,
+      "degrees_in_sign": 0.6157,
+      "house": 10
+    },
+    {
+      "planet": "Moon",
+      "longitude": 272.6645,
+      "sign": "Makara/Capricorn",
+      "sign_number": 10,
+      "degrees_in_sign": 2.6645,
+      "house": 6
+    },
+    {
+      "planet": "Mercury",
+      "longitude": 14.2939,
+      "sign": "Mesha/Aries",
+      "sign_number": 1,
+      "degrees_in_sign": 14.2939,
+      "house": 10
+    },
+    {
+      "planet": "Venus",
+      "longitude": 349.0281,
+      "sign": "Meena/Pisces",
+      "sign_number": 12,
+      "degrees_in_sign": 19.0281,
+      "house": 9
+    },
+    {
+      "planet": "Mars",
+      "longitude": 324.5679,
+      "sign": "Kumbha/Aquarius",
+      "sign_number": 11,
+      "degrees_in_sign": 24.5679,
+      "house": 8
+    },
+    {
+      "planet": "Jupiter",
+      "longitude": 75.8105,
+      "sign": "Mithuna/Gemini",
+      "sign_number": 3,
+      "degrees_in_sign": 15.8105,
+      "house": 12
+    },
+    {
+      "planet": "Saturn",
+      "longitude": 271.5238,
+      "sign": "Makara/Capricorn",
+      "sign_number": 10,
+      "degrees_in_sign": 1.5238,
+      "house": 6
+    },
+    {
+      "planet": "Rahu",
+      "longitude": 227.6288,
+      "sign": "Vrischika/Scorpio",
+      "sign_number": 8,
+      "degrees_in_sign": 17.6288,
+      "house": 5
+    },
+    {
+      "planet": "Ketu",
+      "longitude": 257.6288,
+      "sign": "Dhanus/Sagittarius",
+      "sign_number": 9,
+      "degrees_in_sign": 17.6288,
+      "house": 6
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Prokerala API (uses standard library urllib - no extra deps needed)
+# VedicAstro package
+vedicastro
+# PyJHora package  
+PyJHora
+# Swiss Ephemeris (needed by both VedicAstro and PyJHora)
+pyswisseph
+# FastAPI + Uvicorn (to wrap PyJHora as API later)
+fastapi
+uvicorn
+# Excel reading
+openpyxl
+# HTTP requests (nicer than urllib for Prokerala)
+requests
+# Timezone handling
+pytz
+# Tabular output
+tabulate
+# Geocoding (city -> lat/lon) and timezone lookup - used by pyjhora_api
+geopy
+timezonefinder

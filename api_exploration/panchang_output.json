@@ -1,0 +1,57 @@
+{
+  "status": "ok",
+  "input": {
+    "date": "2026-02-16",
+    "time": "12:00:00",
+    "latitude": 28.6139,
+    "longitude": 77.209,
+    "timezone": 5.5
+  },
+  "sunrise": "07:02:43",
+  "sunset": "18:08:02",
+  "moonrise": "06:05:57",
+  "moonset": "17:11:09",
+  "tithi": {
+    "number": 29,
+    "name": "Chaturdashi",
+    "paksha": "Krishna Paksha (Waning)",
+    "start_time": "17:16",
+    "end_time": "17:35"
+  },
+  "nakshatra": {
+    "number": 22,
+    "name": "Shravana",
+    "pada": 3,
+    "start_time": "04:11",
+    "end_time": "20:47"
+  },
+  "vaara": {
+    "number": 1,
+    "name": "Somavara (Monday)"
+  },
+  "rahu_kaal": {
+    "start": "08:25:53",
+    "end": "09:49:03"
+  },
+  "yamagandam": {
+    "start": "11:12:13",
+    "end": "12:35:23"
+  },
+  "gulikai_kaal": {
+    "start": "13:58:32",
+    "end": "15:21:42"
+  },
+  "lunar_month": {
+    "number": 11,
+    "name": "Magha",
+    "is_leap_month": false
+  },
+  "ritu": {
+    "number": 5,
+    "name": "Shishira (Winter)"
+  },
+  "samvatsara": {
+    "number": 58,
+    "name": "Raktakshi"
+  }
+}

@@ -1,0 +1,60 @@
+# Python
+api_exploration/venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+
+# Node
+lyra_app/node_modules/
+node_modules/
+
+# Build outputs
+lyra_app/dist/
+dist/
+
+# Android (Capacitor)
+lyra_app/android/build/
+lyra_app/android/app/build/
+lyra_app/android/.gradle/
+lyra_app/android/local.properties
+*.apk
+*.aab
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local test outputs and copies (not needed for deploy)
+New folder/
+/src/
+
+# Large data / design assets (optional - remove from .gitignore if you need them in repo)
+*.xlsx
+Lyra Mobile App Design/
+Data_collected/
+guidelines/
+
+# Root-level debug/scratch scripts (not part of API or app)
+_*.py
+fix_names_*.py
+extract_names.py
+copy_fullnames.py
+delete_rows.py
+read_excel.py
+*_log.txt
+name_correction_cache.json

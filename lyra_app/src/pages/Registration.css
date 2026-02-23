@@ -1,0 +1,118 @@
+.registration {
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 24px;
+  padding-top: 48px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.reg-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.reg-header .back-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--border);
+  color: var(--text);
+  border-radius: 12px;
+  font-size: 1.25rem;
+  transition: background 0.2s;
+}
+
+.reg-header .back-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.reg-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reg-header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.reg-form {
+  margin-bottom: 24px;
+}
+
+.reg-form .form-group {
+  margin-bottom: 20px;
+}
+
+.reg-form label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.reg-form input {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.reg-form input::placeholder {
+  color: var(--text-muted);
+}
+
+.reg-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.reg-form .btn-full {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.reg-login {
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+.reg-login .link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.reg-privacy {
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.5;
+}

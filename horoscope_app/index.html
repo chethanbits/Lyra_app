@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedic Horoscope App</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 20px 10px;
+        }
+        .header h1 {
+            font-size: 2rem;
+            color: #ffd700;
+            letter-spacing: 2px;
+        }
+        .header p {
+            color: #aaa;
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* INPUT FORM */
+        .input-section {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .input-section h2 {
+            color: #ffd700;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            font-size: 0.75rem;
+            color: #aaa;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .form-group input, .form-group select {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            padding: 10px 12px;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border 0.2s;
+        }
+        .form-group input:focus {
+            border-color: #ffd700;
+        }
+        .btn {
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: #1a1a2e;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 16px;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(255,215,0,0.3);
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: wait;
+        }
+
+        /* RESULTS */
+        .results { display: none; }
+        .results.show { display: block; }
+
+        /* PANCHANG SECTION */
+        .panchang-section {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .panchang-section h2 {
+            color: #ffd700;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+        .panchang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .panchang-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 16px;
+        }
+        .panchang-card h3 {
+            color: #ffa500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding-bottom: 6px;
+        }
+        .panchang-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            font-size: 0.9rem;
+        }
+        .panchang-row .label {
+            color: #999;
+        }
+        .panchang-row .value {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* CHARTS SECTION */
+        .charts-section {
+            margin-bottom: 24px;
+        }
+        .charts-section h2 {
+            color: #ffd700;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 24px;
+        }
+        .chart-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+        .chart-card h3 {
+            color: #ffa500;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+        .chart-card svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* PLANET LEGEND */
+        .planet-legend {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .planet-legend h2 {
+            color: #ffd700;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 6px;
+        }
+        .legend-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 12px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        .legend-item .planet-name { color: #ffd700; font-weight: 600; }
+        .legend-item .planet-detail { color: #ccc; }
+
+        /* LOADING */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            display: none;
+        }
+        .loading.show { display: block; }
+        .spinner {
+            width: 40px; height: 40px;
+            border: 3px solid rgba(255,215,0,0.2);
+            border-top-color: #ffd700;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 16px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .error-msg {
+            background: rgba(255,50,50,0.2);
+            border: 1px solid rgba(255,50,50,0.4);
+            border-radius: 8px;
+            padding: 12px;
+            color: #ff6b6b;
+            margin-top: 12px;
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .charts-grid { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Vedic Horoscope</h1>
+    <p>Powered by PyJHora | Panchang + North &amp; South Indian Charts</p>
+</div>
+
+<div class="container">
+
+    <!-- INPUT FORM -->
+    <div class="input-section">
+        <h2>Enter Birth / Date Details</h2>
+        <div class="form-grid">
+            <div class="form-group">
+                <label>Year</label>
+                <input type="number" id="year" value="1968" min="1900" max="2100">
+            </div>
+            <div class="form-group">
+                <label>Month</label>
+                <input type="number" id="month" value="10" min="1" max="12">
+            </div>
+            <div class="form-group">
+                <label>Day</label>
+                <input type="number" id="day" value="6" min="1" max="31">
+            </div>
+            <div class="form-group">
+                <label>Hour (24h)</label>
+                <input type="number" id="hour" value="5" min="0" max="23">
+            </div>
+            <div class="form-group">
+                <label>Minute</label>
+                <input type="number" id="minute" value="35" min="0" max="59">
+            </div>
+            <div class="form-group">
+                <label>Latitude</label>
+                <input type="number" id="lat" value="28.6139" step="0.0001">
+            </div>
+            <div class="form-group">
+                <label>Longitude</label>
+                <input type="number" id="lon" value="77.2090" step="0.0001">
+            </div>
+            <div class="form-group">
+                <label>Timezone (UTC)</label>
+                <input type="number" id="tz" value="5.5" step="0.5">
+            </div>
+        </div>
+        <button class="btn" id="generateBtn" onclick="generate()">Generate Horoscope</button>
+        <div class="error-msg" id="errorMsg"></div>
+    </div>
+
+    <!-- LOADING -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Calculating horoscope...</p>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results" id="results">
+
+        <!-- PANCHANG -->
+        <div class="panchang-section">
+            <h2>Panchang Details</h2>
+            <div class="panchang-grid" id="panchangGrid"></div>
+        </div>
+
+        <!-- PLANET POSITIONS LEGEND -->
+        <div class="planet-legend">
+            <h2>Planet Positions</h2>
+            <div class="legend-grid" id="legendGrid"></div>
+        </div>
+
+        <!-- CHARTS -->
+        <div class="charts-section">
+            <h2>Horoscope Charts</h2>
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>South Indian Style</h3>
+                    <div id="southChart"></div>
+                </div>
+                <div class="chart-card">
+                    <h3>North Indian Style</h3>
+                    <div id="northChart"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+const API_BASE = "http://localhost:8000";
+
+const SIGN_NAMES = [
+    "Mesha", "Vrishabha", "Mithuna", "Kataka",
+    "Simha", "Kanya", "Tula", "Vrischika",
+    "Dhanus", "Makara", "Kumbha", "Meena"
+];
+
+const SIGN_SHORT = [
+    "Mes", "Vri", "Mit", "Kat",
+    "Sim", "Kan", "Tul", "Vrs",
+    "Dha", "Mak", "Kum", "Mee"
+];
+
+const PLANET_ABBR = {
+    "Sun": "Su", "Moon": "Mo", "Mercury": "Me", "Venus": "Ve",
+    "Mars": "Ma", "Jupiter": "Ju", "Saturn": "Sa", "Rahu": "Ra", "Ketu": "Ke"
+};
+
+const PLANET_COLORS = {
+    "Su": "#ffd700", "Mo": "#c0c0c0", "Me": "#4caf50", "Ve": "#e91e63",
+    "Ma": "#f44336", "Ju": "#ff9800", "Sa": "#2196f3", "Ra": "#9c27b0", "Ke": "#795548"
+};
+
+async function generate() {
+    const btn = document.getElementById('generateBtn');
+    const loading = document.getElementById('loading');
+    const results = document.getElementById('results');
+    const errorMsg = document.getElementById('errorMsg');
+
+    btn.disabled = true;
+    loading.classList.add('show');
+    results.classList.remove('show');
+    errorMsg.style.display = 'none';
+
+    const params = {
+        year: document.getElementById('year').value,
+        month: document.getElementById('month').value,
+        day: document.getElementById('day').value,
+        hour: document.getElementById('hour').value,
+        minute: document.getElementById('minute').value,
+        second: 0,
+        lat: document.getElementById('lat').value,
+        lon: document.getElementById('lon').value,
+        tz: document.getElementById('tz').value,
+    };
+
+    try {
+        // Fetch panchang + planet positions in parallel
+        const [panchangRes, planetsRes] = await Promise.all([
+            fetch(`${API_BASE}/panchang-detailed?${new URLSearchParams(params)}`),
+            fetch(`${API_BASE}/planet-positions?${new URLSearchParams(params)}`),
+        ]);
+
+        const panchang = await panchangRes.json();
+        const planets = await planetsRes.json();
+
+        if (panchang.status !== "ok" || planets.status !== "ok") {
+            throw new Error("API returned error: " + JSON.stringify(panchang));
+        }
+
+        renderPanchang(panchang);
+        renderLegend(planets);
+        renderSouthChart(planets);
+        renderNorthChart(planets);
+
+        results.classList.add('show');
+    } catch (err) {
+        errorMsg.textContent = "Error: " + err.message + ". Make sure the PyJHora API is running on localhost:8000.";
+        errorMsg.style.display = 'block';
+    } finally {
+        btn.disabled = false;
+        loading.classList.remove('show');
+    }
+}
+
+function renderPanchang(data) {
+    const grid = document.getElementById('panchangGrid');
+
+    let html = '';
+
+    // Card 1: Sun & Moon Rise/Set
+    html += `<div class="panchang-card">
+        <h3>Sunrise / Sunset / Moon</h3>
+        <div class="panchang-row"><span class="label">Sunrise</span><span class="value">${data.sunrise || 'N/A'}</span></div>
+        <div class="panchang-row"><span class="label">Sunset</span><span class="value">${data.sunset || 'N/A'}</span></div>
+        <div class="panchang-row"><span class="label">Moonrise</span><span class="value">${data.moonrise || 'N/A'}</span></div>
+        <div class="panchang-row"><span class="label">Moonset</span><span class="value">${data.moonset || 'N/A'}</span></div>
+    </div>`;
+
+    // Card 2: Tithi, Nakshatra, Vaara
+    const tithi = data.tithi || {};
+    const nak = data.nakshatra || {};
+    const vaara = data.vaara || {};
+    html += `<div class="panchang-card">
+        <h3>Tithi / Nakshatra / Vaara</h3>
+        <div class="panchang-row"><span class="label">Tithi</span><span class="value">${tithi.name || 'N/A'} (${tithi.paksha || ''})</span></div>
+        <div class="panchang-row"><span class="label">Nakshatra</span><span class="value">${nak.name || 'N/A'} (Pada ${nak.pada || '?'})</span></div>
+        <div class="panchang-row"><span class="label">Vaara</span><span class="value">${vaara.name || 'N/A'}</span></div>
+    </div>`;
+
+    // Card 3: Rahu Kaal
+    const rahu = data.rahu_kaal || {};
+    const yama = data.yamagandam || {};
+    const gul = data.gulikai_kaal || {};
+    html += `<div class="panchang-card">
+        <h3>Rahu Kaal / Yamagandam</h3>
+        <div class="panchang-row"><span class="label">Rahu Kaal</span><span class="value">${rahu.start || '?'} - ${rahu.end || '?'}</span></div>
+        <div class="panchang-row"><span class="label">Yamagandam</span><span class="value">${yama.start || '?'} - ${yama.end || '?'}</span></div>
+        <div class="panchang-row"><span class="label">Gulikai</span><span class="value">${gul.start || '?'} - ${gul.end || '?'}</span></div>
+    </div>`;
+
+    // Card 4: Month, Season, Samvatsara
+    const lm = data.lunar_month || {};
+    const ritu = data.ritu || {};
+    const samvat = data.samvatsara || {};
+    html += `<div class="panchang-card">
+        <h3>Month / Season / Samvatsara</h3>
+        <div class="panchang-row"><span class="label">Lunar Month</span><span class="value">${lm.name || 'N/A'}</span></div>
+        <div class="panchang-row"><span class="label">Season (Ritu)</span><span class="value">${ritu.name || 'N/A'}</span></div>
+        <div class="panchang-row"><span class="label">Samvatsara</span><span class="value">${samvat.name || 'N/A'}</span></div>
+    </div>`;
+
+    grid.innerHTML = html;
+}
+
+function renderLegend(data) {
+    const grid = document.getElementById('legendGrid');
+    const planets = data.planet_positions || [];
+    const asc = data.ascendant || {};
+
+    let html = `<div class="legend-item">
+        <span class="planet-name">Asc (Lagna)</span>
+        <span class="planet-detail">${shortSign(asc.sign)} ${(asc.degrees_in_sign || 0).toFixed(1)}&deg;</span>
+    </div>`;
+
+    planets.forEach(p => {
+        const abbr = PLANET_ABBR[p.planet] || p.planet;
+        html += `<div class="legend-item">
+            <span class="planet-name" style="color:${PLANET_COLORS[abbr] || '#ffd700'}">${p.planet} (${abbr})</span>
+            <span class="planet-detail">${shortSign(p.sign)} ${p.degrees_in_sign.toFixed(1)}&deg; | House ${p.house}</span>
+        </div>`;
+    });
+
+    grid.innerHTML = html;
+}
+
+function shortSign(signStr) {
+    if (!signStr) return '?';
+    return signStr.split('/')[0];
+}
+
+function getSignIndex(signStr) {
+    if (!signStr) return -1;
+    const name = signStr.split('/')[0];
+    return SIGN_NAMES.indexOf(name);
+}
+
+// ==========================================
+// SOUTH INDIAN CHART
+// ==========================================
+function renderSouthChart(data) {
+    const container = document.getElementById('southChart');
+    const planets = data.planet_positions || [];
+    const asc = data.ascendant || {};
+    const ascSign = getSignIndex(asc.sign);
+
+    // South Indian: Fixed sign positions in a 4x4 grid
+    // Sign positions (0-indexed sign -> grid position)
+    //  [11][0][1][2]
+    //  [10]      [3]
+    //  [9]       [4]
+    //  [8][7][6][5]
+    const cellSize = 90;
+    const w = cellSize * 4;
+    const h = cellSize * 4;
+
+    // Grid positions for each sign (row, col)
+    const signPositions = [
+        [0,1], // 0=Mesha
+        [0,2], // 1=Vrishabha
+        [0,3], // 2=Mithuna
+        [1,3], // 3=Kataka
+        [2,3], // 4=Simha
+        [3,3], // 5=Kanya
+        [3,2], // 6=Tula
+        [3,1], // 7=Vrischika
+        [3,0], // 8=Dhanus
+        [2,0], // 9=Makara
+        [1,0], // 10=Kumbha
+        [0,0], // 11=Meena
+    ];
+
+    // Build sign -> planets mapping
+    const signPlanets = {};
+    for (let i = 0; i < 12; i++) signPlanets[i] = [];
+
+    planets.forEach(p => {
+        const si = getSignIndex(p.sign);
+        if (si >= 0) {
+            signPlanets[si].push(PLANET_ABBR[p.planet] || p.planet.substring(0,2));
+        }
+    });
+
+    let svg = `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg">`;
+
+    // Background
+    svg += `<rect x="0" y="0" width="${w}" height="${h}" fill="#1a1a2e" rx="8"/>`;
+
+    // Draw grid lines
+    svg += `<rect x="0" y="0" width="${w}" height="${h}" fill="none" stroke="#ffd700" stroke-width="2" rx="8"/>`;
+    // Horizontal lines
+    for (let i = 1; i < 4; i++) {
+        svg += `<line x1="0" y1="${i*cellSize}" x2="${w}" y2="${i*cellSize}" stroke="#ffd700" stroke-width="1.5"/>`;
+    }
+    // Vertical lines
+    for (let i = 1; i < 4; i++) {
+        svg += `<line x1="${i*cellSize}" y1="0" x2="${i*cellSize}" y2="${h}" stroke="#ffd700" stroke-width="1.5"/>`;
+    }
+
+    // Center box diagonal cross (the middle 2x2 area)
+    svg += `<line x1="${cellSize}" y1="${cellSize}" x2="${3*cellSize}" y2="${3*cellSize}" stroke="#ffd700" stroke-width="1" stroke-dasharray="4,4"/>`;
+    svg += `<line x1="${3*cellSize}" y1="${cellSize}" x2="${cellSize}" y2="${3*cellSize}" stroke="#ffd700" stroke-width="1" stroke-dasharray="4,4"/>`;
+
+    // Draw each sign cell
+    for (let si = 0; si < 12; si++) {
+        const [row, col] = signPositions[si];
+        const x = col * cellSize;
+        const y = row * cellSize;
+
+        // Highlight ascendant sign
+        if (si === ascSign) {
+            svg += `<rect x="${x+1}" y="${y+1}" width="${cellSize-2}" height="${cellSize-2}" fill="rgba(255,215,0,0.15)"/>`;
+        }
+
+        // Sign name (top-left, small)
+        svg += `<text x="${x+5}" y="${y+14}" fill="#888" font-size="10" font-family="sans-serif">${SIGN_SHORT[si]}</text>`;
+
+        // Ascendant marker
+        if (si === ascSign) {
+            svg += `<text x="${x+cellSize-14}" y="${y+14}" fill="#ffd700" font-size="10" font-weight="bold" font-family="sans-serif">As</text>`;
+        }
+
+        // Planets in this sign
+        const pList = signPlanets[si];
+        if (pList.length > 0) {
+            const startY = y + 35;
+            const perLine = 3;
+            for (let pi = 0; pi < pList.length; pi++) {
+                const pRow = Math.floor(pi / perLine);
+                const pCol = pi % perLine;
+                const px = x + 10 + pCol * 28;
+                const py = startY + pRow * 20;
+                const color = PLANET_COLORS[pList[pi]] || '#fff';
+                svg += `<text x="${px}" y="${py}" fill="${color}" font-size="13" font-weight="bold" font-family="sans-serif">${pList[pi]}</text>`;
+            }
+        }
+    }
+
+    svg += `</svg>`;
+    container.innerHTML = svg;
+}
+
+
+// ==========================================
+// NORTH INDIAN CHART
+// ==========================================
+function renderNorthChart(data) {
+    const container = document.getElementById('northChart');
+    const planets = data.planet_positions || [];
+    const asc = data.ascendant || {};
+    const ascSign = getSignIndex(asc.sign);
+
+    const size = 360;
+    const cx = size / 2;
+    const cy = size / 2;
+    const half = size / 2;
+
+    // North Indian style: Diamond with 12 houses
+    // House 1 is always at the top center, and the sign in House 1 = Ascendant sign
+    // Houses go counterclockwise (or as per tradition)
+
+    // Define the 12 house regions as polygons
+    // The chart is a square with diagonals and midpoint lines
+    // Corners: TL(0,0), TR(s,0), BR(s,s), BL(0,s)
+    // Midpoints: T(cx,0), R(s,cy), B(cx,s), L(0,cy)
+    // Center: C(cx,cy)
+    const s = size;
+    const TL = [0,0], T = [cx,0], TR = [s,0];
+    const L = [0,cy], C = [cx,cy], R = [s,cy];
+    const BL = [0,s], B = [cx,s], BR = [s,s];
+
+    // House polygons (North Indian standard layout)
+    // House 1: Top diamond
+    const houses = [
+        /* H1  */ [T, [cx+half/2,half/2], C, [cx-half/2,half/2]],
+        /* H2  */ [T, TR, [s, half/2], [cx+half/2, half/2]],
+        /* H3  */ [[s,half/2], TR, R, [cx+half/2, half/2]],  // need to fix
+        /* H4  */ [[cx+half/2, half/2], R, [cx+half/2, cy+half/2], C],
+        /* H5  */ [R, BR, [cx+half/2, cy+half/2]],
+        /* H6  */ [[cx+half/2, cy+half/2], BR, B, C],
+        /* H7  */ [C, B, [cx-half/2, cy+half/2]],
+        /* H8  */ [B, BL, [cx-half/2, cy+half/2]],
+        /* H9  */ [[cx-half/2, cy+half/2], BL, L, C],
+        /* H10 */ [L, [cx-half/2, half/2], C, [cx-half/2, cy+half/2]],
+        /* H11 */ [TL, T, [cx-half/2, half/2], L],
+        /* H12 */ [TL, [cx-half/2,half/2], T],  // triangle
+    ];
+
+    // Actually, the standard North Indian chart is simpler.
+    // Let me use the traditional layout:
+    // It's a square divided by 2 diagonals, creating 4 big triangles.
+    // Each triangle is further divided into 3 sections by lines from midpoints.
+
+    // Simpler approach: define house centers for text placement and draw the standard diamond.
+
+    // Standard North Indian: outer square, inner diamond (rotated square)
+    // The inner diamond connects midpoints of outer square sides.
+
+    const m = 16; // margin
+    const os = size - 2*m; // outer square size
+    const ox = m, oy = m; // outer square origin
+
+    // Midpoints of outer square sides
+    const mT = [ox + os/2, oy];           // top
+    const mR = [ox + os, oy + os/2];      // right
+    const mB = [ox + os/2, oy + os];      // bottom
+    const mL = [ox, oy + os/2];           // left
+    const center = [ox + os/2, oy + os/2];
+
+    // Corners of outer square
+    const cTL = [ox, oy];
+    const cTR = [ox + os, oy];
+    const cBR = [ox + os, oy + os];
+    const cBL = [ox, oy + os];
+
+    // North Indian house layout (12 houses as polygons):
+    const housePolygons = [
+        // H1 (top center diamond) - Ascendant always here
+        [mT, [center[0]+os/4, center[1]-os/4], center, [center[0]-os/4, center[1]-os/4]],
+        // H2 (top-right triangle)
+        [mT, cTR, [center[0]+os/4, center[1]-os/4]],
+        // H3 (right-top triangle)
+        [cTR, mR, [center[0]+os/4, center[1]-os/4]],
+        // H4 (right center diamond)
+        [[center[0]+os/4, center[1]-os/4], mR, [center[0]+os/4, center[1]+os/4], center],
+        // H5 (right-bottom triangle)
+        [mR, cBR, [center[0]+os/4, center[1]+os/4]],
+        // H6 (bottom-right triangle)
+        [cBR, mB, [center[0]+os/4, center[1]+os/4]],
+        // H7 (bottom center diamond)
+        [mB, [center[0]+os/4, center[1]+os/4], center, [center[0]-os/4, center[1]+os/4]],
+        // H8 (bottom-left triangle)
+        [mB, cBL, [center[0]-os/4, center[1]+os/4]],
+        // H9 (left-bottom triangle)
+        [cBL, mL, [center[0]-os/4, center[1]+os/4]],
+        // H10 (left center diamond)
+        [[center[0]-os/4, center[1]+os/4], mL, [center[0]-os/4, center[1]-os/4], center],
+        // H11 (left-top triangle)
+        [mL, cTL, [center[0]-os/4, center[1]-os/4]],
+        // H12 (top-left triangle)
+        [cTL, mT, [center[0]-os/4, center[1]-os/4]],
+    ];
+
+    // House text centers (approximate center of each polygon)
+    const houseCenters = [
+        [center[0], oy + os*0.18],                // H1
+        [ox + os*0.78, oy + os*0.1],              // H2
+        [ox + os*0.9, oy + os*0.22],              // H3
+        [ox + os*0.82, center[1]],                 // H4
+        [ox + os*0.9, oy + os*0.78],              // H5
+        [ox + os*0.78, oy + os*0.9],              // H6
+        [center[0], oy + os*0.82],                 // H7
+        [ox + os*0.22, oy + os*0.9],              // H8
+        [ox + os*0.1, oy + os*0.78],              // H9
+        [ox + os*0.18, center[1]],                 // H10
+        [ox + os*0.1, oy + os*0.22],              // H11
+        [ox + os*0.22, oy + os*0.1],              // H12
+    ];
+
+    // Map signs to houses: House 1 = ascendant sign, House 2 = next sign, etc.
+    const houseToSign = [];
+    for (let i = 0; i < 12; i++) {
+        houseToSign.push((ascSign + i) % 12);
+    }
+
+    // Build house -> planets mapping
+    const housePlanets = {};
+    for (let h = 0; h < 12; h++) housePlanets[h] = [];
+
+    planets.forEach(p => {
+        const h = p.house;
+        if (h >= 1 && h <= 12) {
+            housePlanets[h - 1].push(PLANET_ABBR[p.planet] || p.planet.substring(0,2));
+        }
+    });
+
+    let svg = `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">`;
+
+    // Background
+    svg += `<rect x="0" y="0" width="${size}" height="${size}" fill="#1a1a2e" rx="8"/>`;
+
+    // Outer square
+    svg += `<rect x="${ox}" y="${oy}" width="${os}" height="${os}" fill="none" stroke="#ffd700" stroke-width="2"/>`;
+
+    // Inner diamond (connecting midpoints)
+    svg += `<polygon points="${mT[0]},${mT[1]} ${mR[0]},${mR[1]} ${mB[0]},${mB[1]} ${mL[0]},${mL[1]}" fill="none" stroke="#ffd700" stroke-width="2"/>`;
+
+    // Diagonal lines from corners to create the 12 house divisions
+    // Top-left to center area
+    svg += `<line x1="${cTL[0]}" y1="${cTL[1]}" x2="${center[0]}" y2="${center[1]}" stroke="#ffd700" stroke-width="1"/>`;
+    // Top-right to center
+    svg += `<line x1="${cTR[0]}" y1="${cTR[1]}" x2="${center[0]}" y2="${center[1]}" stroke="#ffd700" stroke-width="1"/>`;
+    // Bottom-right to center
+    svg += `<line x1="${cBR[0]}" y1="${cBR[1]}" x2="${center[0]}" y2="${center[1]}" stroke="#ffd700" stroke-width="1"/>`;
+    // Bottom-left to center
+    svg += `<line x1="${cBL[0]}" y1="${cBL[1]}" x2="${center[0]}" y2="${center[1]}" stroke="#ffd700" stroke-width="1"/>`;
+
+    // Draw house numbers, sign names, and planets
+    for (let h = 0; h < 12; h++) {
+        const [tx, ty] = houseCenters[h];
+        const signIdx = houseToSign[h];
+
+        // Sign name (small, subtle)
+        svg += `<text x="${tx}" y="${ty - 8}" fill="#888" font-size="9" font-family="sans-serif" text-anchor="middle">${SIGN_SHORT[signIdx]}</text>`;
+
+        // Ascendant marker for H1
+        if (h === 0) {
+            svg += `<text x="${tx}" y="${ty + 4}" fill="#ffd700" font-size="9" font-weight="bold" font-family="sans-serif" text-anchor="middle">Asc</text>`;
+        }
+
+        // Planets in this house
+        const pList = housePlanets[h];
+        if (pList.length > 0) {
+            const startY = (h === 0) ? ty + 14 : ty + 4;
+            for (let pi = 0; pi < pList.length; pi++) {
+                const row = Math.floor(pi / 2);
+                const col = pi % 2;
+                const px = tx - 12 + col * 24;
+                const py = startY + row * 14;
+                const color = PLANET_COLORS[pList[pi]] || '#fff';
+                svg += `<text x="${px}" y="${py}" fill="${color}" font-size="12" font-weight="bold" font-family="sans-serif" text-anchor="middle">${pList[pi]}</text>`;
+            }
+        }
+    }
+
+    svg += `</svg>`;
+    container.innerHTML = svg;
+}
+</script>
+
+</body>
+</html>

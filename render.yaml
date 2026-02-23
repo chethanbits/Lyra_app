@@ -1,0 +1,11 @@
+# Render Blueprint: deploy API (PyJHora) as a free Web Service.
+# Connect this repo in Render dashboard, then use "Apply" or deploy from this blueprint.
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: lyra-pyjhora-api
+    runtime: python
+    rootDir: api_exploration
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn pyjhora_api:app --host 0.0.0.0 --port $PORT

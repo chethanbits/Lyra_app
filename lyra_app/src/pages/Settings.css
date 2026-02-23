@@ -1,0 +1,64 @@
+.settings {
+  padding-bottom: 24px;
+}
+
+.settings-header {
+  margin-bottom: 24px;
+}
+
+.settings-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.settings-section {
+  margin-bottom: 24px;
+}
+
+.settings-section h2 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9375rem;
+}
+
+.setting-row:last-child {
+  border-bottom: none;
+}
+
+.setting-row .muted {
+  color: var(--text-muted);
+}
+
+.theme-toggle {
+  padding: 8px 16px;
+  background: var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.theme-toggle:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.settings-footer {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 32px;
+}

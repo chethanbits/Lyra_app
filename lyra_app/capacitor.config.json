@@ -1,0 +1,8 @@
+{
+  "appId": "com.lyra.alignyourday",
+  "appName": "Lyra",
+  "webDir": "dist",
+  "server": {
+    "cleartext": true
+  }
+}

@@ -1,0 +1,107 @@
+.welcome {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+}
+
+.welcome-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  opacity: 0.97;
+}
+
+.welcome-content {
+  position: relative;
+  text-align: center;
+  max-width: 360px;
+}
+
+.welcome-logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.welcome-title-wrap {
+  margin-bottom: 12px;
+}
+
+.welcome-title-wrap .welcome-tagline {
+  margin-bottom: 0;
+}
+
+/* Figma: circular logo 80x80, dark #1A2332, white outline star + small plus */
+.welcome-logo {
+  width: 80px;
+  height: 80px;
+  margin: 0;
+  background: #1A2332;
+  color: #FDFBF7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-logo-sparkle {
+  width: 40px;
+  height: 40px;
+  color: #FDFBF7;
+}
+
+.welcome-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1A2332;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.welcome-tagline {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.welcome-desc {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+.welcome-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Figma: significantly rounded corners, primary filled dark, secondary thin light border */
+.btn {
+  padding: 16px 24px;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: opacity 0.2s, transform 0.15s;
+  width: 100%;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: #1A2332;
+  color: #fff;
+  border: none;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: #1A2332;
+  border: 1px solid #e5e2db;
+}

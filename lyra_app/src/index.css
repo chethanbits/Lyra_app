@@ -1,0 +1,85 @@
+/* Lyra – constellation-inspired, calm, premium */
+:root {
+  /* Default: light ivory + midnight blue */
+  --bg: #f8f6f1;
+  --bg-card: #ffffff;
+  --text: #1a1a2e;
+  --text-muted: #5c5c6d;
+  --accent: #1a1a2e;
+  --favorable: #059669;
+  --neutral: #d97706;
+  --caution: #b91c1c;
+  --border: #e5e2db;
+  --constellation: #1a1a2e;
+}
+
+[data-theme="dark"] {
+  --bg: #0f0e14;
+  --bg-card: #1a1925;
+  --text: #f8f6f1;
+  --text-muted: #9ca3af;
+  --accent: #a5b4fc;
+  --border: #2d2a3a;
+  --constellation: #a5b4fc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Optional: lock to a single mobile width during development (like Figma artboard).
+   Add class "mobile-frame" to <body> in index.html to enable. */
+body.mobile-frame #root {
+  max-width: 390px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100vh;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.06);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, select {
+  font-family: inherit;
+}
+
+/* Smooth page enter (Figma-like transition) */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: pageFadeIn 0.4s ease-out forwards;
+}

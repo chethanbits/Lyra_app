@@ -1,0 +1,91 @@
+/* Planner – match Figma: hero line, event grid with icons, Look Ahead 30/60/90 */
+.planner-figma {
+  padding: 0 24px 100px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.planner-hero {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+.planner-section {
+  margin-bottom: 28px;
+}
+
+.planner-section-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.planner-event-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.planner-event-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.planner-event-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: rgba(26, 26, 46, 0.15);
+}
+
+.planner-event-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.planner-event-label {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.planner-lookahead {
+  display: flex;
+  gap: 12px;
+}
+
+.planner-lookahead-btn {
+  flex: 1;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.planner-lookahead-btn:hover {
+  border-color: rgba(26, 26, 46, 0.25);
+}
+
+.planner-lookahead-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+[data-theme="dark"] .planner-lookahead-btn.active {
+  color: #1a1a2e;
+}

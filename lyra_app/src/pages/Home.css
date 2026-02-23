@@ -1,0 +1,456 @@
+/* Premium Home - Figma-style */
+.home-premium {
+  padding-bottom: 100px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.home-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.guest-badge {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.streak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text);
+  background: rgba(217, 119, 6, 0.12);
+  color: #b45309;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.streak-icon {
+  font-size: 0.875rem;
+}
+
+.home-topbar .home-location {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.home-datenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+
+.nav-arrow {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--accent);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.nav-arrow:hover {
+  background: var(--border);
+}
+
+.datenav-date {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.home-hindu {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* Alignment Score - premium card */
+.score-card-premium {
+  border-width: 2px;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.score-card-premium.favorable {
+  border-color: rgba(5, 150, 105, 0.4);
+  background: rgba(5, 150, 105, 0.04);
+}
+
+.score-card-premium.neutral {
+  border-color: rgba(217, 119, 6, 0.3);
+  background: rgba(217, 119, 6, 0.04);
+}
+
+.score-card-premium.caution {
+  border-color: rgba(185, 28, 28, 0.3);
+  background: rgba(185, 28, 28, 0.04);
+}
+
+.score-card-premium h2 {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.score-card-premium .score-value {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.score-max {
+  font-size: 1.25rem;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.score-card-premium .score-label {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.score-card-premium .score-chips {
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.score-card-premium .daily-insight {
+  font-size: 0.9375rem;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 2px solid var(--favorable);
+  border-radius: 12px;
+  color: var(--favorable);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.share-btn:hover {
+  background: rgba(5, 150, 105, 0.1);
+}
+
+.share-icon {
+  font-size: 1.125rem;
+  opacity: 0.9;
+}
+
+/* 30-Day Trend */
+.trend-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.trend-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.trend-header h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.trend-up {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--favorable);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.trend-arrow {
+  font-size: 1rem;
+}
+
+.trend-chart {
+  height: 64px;
+  margin: 8px 0 16px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.trend-chart svg {
+  width: 100%;
+  height: 100%;
+}
+
+.trend-stats {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.trend-stat-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.trend-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.trend-stat-sub {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+.trend-pattern {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Today's Panchang - two column */
+.panchang-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.panchang-card h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.panchang-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 24px;
+}
+
+.panchang-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.panchang-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.panchang-val {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.panchang-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.panchang-timeline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.timeline-start,
+.timeline-end {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.timeline-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  position: relative;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+/* Figma: Plan Event / 30-Day Outlook – light grey bg, subtle border, dark grey icon + text */
+.home-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 12px;
+  background: #f0eeeb;
+  border: 1px solid #e5e2db;
+  border-radius: 12px;
+  color: #374151;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btn-outline:hover {
+  background: #e8e6e3;
+  border-color: #d1cec9;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #374151;
+}
+
+.btn-icon svg {
+  flex-shrink: 0;
+}
+
+/* Figma: View Full Day Details – dark grey link, centered */
+.link-details {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #374151;
+  padding: 10px 0;
+}
+
+.link-details:hover {
+  text-decoration: underline;
+}
+
+/* Keep existing home-loading, home-error, spinner, chips */
+.home-loading,
+.home-error {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--text-muted);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 16px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.home-error .hint {
+  font-size: 0.8125rem;
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+.score-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.score-card h2 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.score-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.score-label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.score-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.chip {
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.chip.favorable { background: rgba(5, 150, 105, 0.15); color: var(--favorable); }
+.chip.neutral  { background: rgba(217, 119, 6, 0.15);  color: var(--neutral); }
+.chip.caution  { background: rgba(185, 28, 28, 0.15);  color: var(--caution); }

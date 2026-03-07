@@ -1,0 +1,18 @@
+# --- Core Web Framework ---
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+
+# --- Panchang Engine ---
+pyjhora==3.7.4
+
+# --- PyJHora runtime deps (used by jhora.panchanga.drik) ---
+geopy>=2.4.0
+pyswisseph>=2.10.0
+geocoder>=1.38.0
+timezonefinder>=6.0
+
+# --- Config Parsing ---
+pyyaml==6.0.1
+
+# --- Optional but Recommended ---
+python-dateutil==2.9.0.post0

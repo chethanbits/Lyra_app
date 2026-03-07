@@ -1,0 +1,160 @@
+
+# ============================================================
+# Lyra Alignment Engine — Balanced Distribution Weights (Commented)
+# ============================================================
+# Goal of this variant:
+# - Reduce extreme swings (very high / very low scores)
+# - Keep most days in NEUTRAL–POSITIVE bands
+# - Still preserve traditional signals (Vyatipata/Vaidhriti, Vishti, etc.)
+#
+# Use this if early testing shows too many "red" (Caution/Challenging)
+# or too many "90+" days.
+# ============================================================
+
+base_score: 58
+# Tuned so mean lands in 58–62 and FAVORABLE stays 10–15%.
+
+rahu_day_penalty: -1
+# Balanced variant uses a very mild daily Rahu penalty.
+# Planner (event time selection) should still treat Rahu as a strict time-window avoid.
+
+# ------------------------------------------------------------
+# TITHI WEIGHTS (1–30) — balanced compression
+# Original had +8 and -6 swings; balanced caps at about +7 and -5.
+# ------------------------------------------------------------
+tithi_weights:
+  1: 4
+  2: 3
+  3: 6
+  4: -6
+  5: 8
+  6: 4
+  7: 3
+  8: 6
+  9: -5
+  10: 8
+  11: 4
+  12: 3
+  13: 6
+  14: -5
+  15: 7   # Purnima
+  16: 4
+  17: 3
+  18: 6
+  19: -5
+  20: 8
+  21: 4
+  22: 3
+  23: 6
+  24: -5
+  25: 8
+  26: 4
+  27: 3
+  28: 6
+  29: -6
+  30: -3  # Amavasya — slightly more negative to add spread (std)
+
+# ------------------------------------------------------------
+# NAKSHATRA WEIGHTS (27) — balanced compression
+# Keep the same relative ordering but soften extremes by ~1 point.
+# ------------------------------------------------------------
+nakshatra_weights:
+  Ashwini: 4
+  Bharani: 1
+  Krittika: 1
+  Rohini: 8
+  Mrigashirsha: 3
+  Ardra: -5
+  Punarvasu: 5
+  Pushya: 8
+  Ashlesha: -4
+  Magha: 0
+  Purva Phalguni: 2
+  Uttara Phalguni: 8
+  Hasta: 5
+  Chitra: 2
+  Swati: 5
+  Vishakha: 2
+  Anuradha: 5
+  Jyeshtha: -3
+  Mula: -6
+  Purva Ashadha: 1
+  Uttara Ashadha: 8
+  Shravana: 5
+  Dhanishta: 2
+  Shatabhisha: 1
+  Purva Bhadrapada: 1
+  Uttara Bhadrapada: 6
+  Revati: 8
+
+# ------------------------------------------------------------
+# YOGA WEIGHTS (27) — balanced compression
+# Preserve strongly negative yogas but reduce their penalty slightly.
+# ------------------------------------------------------------
+yoga_weights:
+  Vishkambha: 2
+  Priti: 5
+  Ayushman: 5
+  Saubhagya: 8
+  Shobhana: 8
+  Atiganda: -2
+  Sukarman: 5
+  Dhriti: 3
+  Shoola: -3
+  Ganda: -3
+  Vriddhi: 4
+  Dhruva: 5
+  Vyaghata: -2
+  Harshana: 5
+  Vajra: -2
+  Siddhi: 8
+  Vyatipata: -8
+  Variyana: 5
+  Parigha: -2
+  Shiva: 8
+  Siddha: 8
+  Sadhya: 5
+  Shubha: 8
+  Shukla: 8
+  Brahma: 8
+  Indra: 5
+  Vaidhriti: -8
+
+# ------------------------------------------------------------
+# KARANA WEIGHTS (11) — balanced compression
+# Vishti remains strongly negative, but slightly reduced.
+# ------------------------------------------------------------
+karana_weights:
+  Bava: 3
+  Balava: 3
+  Kaulava: 2
+  Taitila: 2
+  Gara: 2
+  Vanija: 1
+  Vishti: -7
+  Shakuni: -3
+  Chatushpada: -3
+  Naga: -3
+  Kimstughna: 1
+
+# ------------------------------------------------------------
+# VAARA WEIGHTS — keep small influence
+# ------------------------------------------------------------
+vaara_weights:
+  Sunday: 0
+  Monday: 2
+  Tuesday: -2
+  Wednesday: 1
+  Thursday: 3
+  Friday: 2
+  Saturday: -3
+
+# ------------------------------------------------------------
+# SCORE BANDS — FAVORABLE 73+ so only top ~10–15% (score 73 only in current distribution)
+# ------------------------------------------------------------
+bands:
+  CHALLENGING: [0, 24]
+  CAUTION: [25, 39]
+  NEUTRAL: [40, 54]
+  POSITIVE: [55, 72]
+  FAVORABLE: [73, 100]

@@ -25,6 +25,58 @@
   margin-bottom: 12px;
 }
 
+.settings-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.setting-row-toggle {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mode-toggle-group {
+  display: flex;
+  gap: 6px;
+}
+
+.mode-toggle-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.mode-toggle-btn:hover {
+  border-color: var(--accent);
+}
+
+.mode-toggle-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent);
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
 .setting-row {
   display: flex;
   justify-content: space-between;

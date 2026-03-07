@@ -1,0 +1,11 @@
+# Lyra Production Backend — single service (API + processing layer + preloaded data)
+# Python 3.11+
+
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+pyyaml>=6.0.1
+PyJHora>=3.7.4
+geopy>=2.4.0
+timezonefinder>=6.0
+geocoder>=1.38.0
+python-dateutil>=2.9.0

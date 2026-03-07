@@ -1,93 +1,98 @@
-# Deploy Lyra (Vercel + Render) – Free
+# Deploy Lyra to Vercel + Render
 
-Deploy the **app** to **Vercel** and the **API** to **Render**. Both have free tiers. No payment needed for this setup.
-
----
-
-## Cost
-
-| Service | Plan | Cost |
-|--------|------|------|
-| **Vercel** (app) | Hobby / Free | **$0** |
-| **Render** (API) | Free Web Service | **$0** (service may sleep after ~15 min idle; wakes on first request) |
-
-You do **not** need a credit card for the free tiers.
+Use this when pushing your updated code so your boss can test the live app.
 
 ---
 
-## 1. Deploy the API (Render) first
+## 1. Remove / don’t commit unnecessary stuff
 
-You need the API URL before building the app, so the app can call it.
+Already ignored via `.gitignore` (won’t be pushed):
 
-1. Push your repo to **GitHub** (if not already).
-2. Go to [render.com](https://render.com) and sign up (GitHub login is fine).
-3. **Dashboard** → **New** → **Blueprint**.
-4. Connect your **GitHub repo** (the one containing `api_exploration` and `lyra_app`).
-5. Render will detect the **render.yaml** in the repo root. It defines one service:
-   - **Name:** lyra-pyjhora-api  
-   - **Root directory:** api_exploration  
-   - **Build:** `pip install -r requirements.txt`  
-   - **Start:** `uvicorn pyjhora_api:app --host 0.0.0.0 --port $PORT`
-6. Click **Apply** (or create the service). Wait for the first deploy to finish.
-7. Copy the service URL (e.g. `https://lyra-pyjhora-api.onrender.com`). You will use this as the app’s API URL.
+- `lyra_app/node_modules/`, `lyra_app/dist/`
+- `prodbackend/__pycache__/`, `prodbackend/venv/`, `prodbackend/.env`
+- `prodbackend/_tuning_guide_extract/`, `prodbackend/_step_guide_extract/`, `prodbackend/*.docx`, `prodbackend/*.py.txt`, `prodbackend/lyra_preloaded.db`
+- `.env`, `.env.local`, IDE/OS junk
 
-**If you don’t use Blueprint:**  
-- **New** → **Web Service** → connect repo → set **Root Directory** to `api_exploration` → **Build Command:** `pip install -r requirements.txt` → **Start Command:** `uvicorn pyjhora_api:app --host 0.0.0.0 --port $PORT` → Create.
+**Optional (if you want a smaller repo):**
+
+- If `swisseph-master/` at repo root is not used by the app or API, you can add to `.gitignore`:  
+  `swisseph-master/`
+- Don’t commit any `.env` or secrets; use Vercel/Render **Environment Variables** in the dashboard.
 
 ---
 
-## 2. Deploy the app (Vercel)
+## 2. What gets deployed where
 
-1. Go to [vercel.com](https://vercel.com) and sign up (GitHub login is fine).
-2. **Add New** → **Project** → import the **same GitHub repo**.
-3. Set **Root Directory** to **`lyra_app`** (not the repo root).  
-   - **Framework Preset:** Vite (auto-detected).  
-   - **Build Command:** `npm run build`  
-   - **Output Directory:** `dist`
-4. **Environment variables:** Add one:
-   - **Name:** `VITE_API_URL`  
-   - **Value:** your Render API URL (e.g. `https://lyra-pyjhora-api.onrender.com`)  
-   - No trailing slash.
-5. Click **Deploy**. Wait for the build to finish.
-6. Your app will be at a URL like `https://lyra-app-xxx.vercel.app`.
-
-**SPA routing:** The repo includes `lyra_app/vercel.json` so that all routes (e.g. `/welcome`, `/app/home`) serve `index.html` and React Router works.
+| Part            | Where     | Root / config              |
+|-----------------|-----------|----------------------------|
+| **Frontend (Lyra app)** | **Vercel**  | Root Directory: `lyra_app` |
+| **Backend (API)**       | **Render** | `render.yaml` → `rootDir: prodbackend` |
 
 ---
 
-## 3. Share the app link
+## 3. Push the updated code
 
-Send your boss (or anyone) the **Vercel app URL**. They open it in the browser on phone or laptop; no install, no Git. The app will call the Render API automatically.
+From the repo root (e.g. `prokeralaandvedic`):
 
----
-
-## 4. Updating after changes
-
-- **You:** Push to GitHub (e.g. `main`).  
-- **Vercel** and **Render** will redeploy automatically if “Deploy on push” is enabled (default).  
-- No need to redeploy by hand unless you change env vars (e.g. in Vercel, change `VITE_API_URL` and redeploy).
-
----
-
-## Folder layout (for reference)
-
-```
-your-repo/
-├── render.yaml          ← Render uses this (API)
-├── DEPLOY.md            ← This file
-├── api_exploration/     ← API (Python/FastAPI) – Render rootDir
-│   ├── requirements.txt
-│   └── pyjhora_api.py
-└── lyra_app/            ← App (React/Vite) – Vercel root
-    ├── vercel.json
-    ├── package.json
-    └── ...
+```bash
+git status
+git add .
+git commit -m "Lyra updates: splash, birth details, festivals 15yr, panchang timeline, deploy prep"
+git push origin main
 ```
 
+(Use your real branch name if it’s not `main`.)
+
 ---
 
-## Troubleshooting
+## 4. Vercel (frontend)
 
-- **App loads but Panchang/API fails:** Check that `VITE_API_URL` in Vercel is exactly your Render API URL (https, no trailing slash). Then trigger a new deploy so the build picks it up.
-- **Render service “unavailable” after a while:** Free tier spins down when idle. The first request after that may take 30–60 seconds; then it’s fast again.
-- **CORS errors:** The API already allows all origins (`*`). If you still see CORS issues, confirm the request is going to the Render URL, not localhost.
+- If the project is already connected: **Vercel will auto-deploy on push**.
+- **Root Directory:** must be `lyra_app` (Vercel dashboard → Project → Settings → General).
+- **Environment variable (important):**
+  - Name: `VITE_API_URL`
+  - Value: your Render API URL, e.g. `https://lyra-pyjhora-api.onrender.com`  
+    (no trailing slash)
+- **Build:** uses `lyra_app/vercel.json` (build command `npm run build`, output `dist`).
+
+After push, open the Vercel deployment URL and test the app. The app will call the API from `VITE_API_URL`.
+
+---
+
+## 5. Render (backend API)
+
+- If the service is already created from this repo: **Render will auto-deploy on push** (when connected to the same branch).
+- **Blueprint:** repo root has `render.yaml` with `rootDir: prodbackend`, so Render builds and runs the **prodbackend** app (`uvicorn app:app`).
+- **Build:** `pip install -r Requirements.txt`  
+- **Start:** `uvicorn app:app --host 0.0.0.0 --port $PORT`
+
+If you previously had a service pointing at `api_exploration`, either:
+
+- Create a **new** Web Service and connect this repo; Render will use `render.yaml` and deploy **prodbackend**, or  
+- Edit the existing service: set **Root Directory** to `prodbackend`, **Build Command** to `pip install -r Requirements.txt`, **Start Command** to `uvicorn app:app --host 0.0.0.0 --port $PORT`, then deploy.
+
+Copy the Render service URL (e.g. `https://lyra-pyjhora-api.onrender.com`) and set it as `VITE_API_URL` in Vercel (step 4).
+
+---
+
+## 6. Quick checklist
+
+1. [ ] `.gitignore` is updated (no secrets or heavy local-only files committed).
+2. [ ] `git add` / `git commit` / `git push` from repo root.
+3. [ ] **Vercel:** Root Directory = `lyra_app`, `VITE_API_URL` = Render API URL.
+4. [ ] **Render:** Service uses `prodbackend` (via `render.yaml` or manual Root Directory + build/start commands).
+5. [ ] Open Vercel URL and test: splash → onboarding → birth details (city lookup, coordinates) → home (panchang, Rahu Kaal, festivals).
+
+---
+
+## 7. If Render build fails
+
+- Ensure **Python version** is 3.10 or 3.11 (in Render dashboard: Environment → add `PYTHON_VERSION` = `3.11.0` if needed).
+- If `ephe` or Swiss Ephemeris is missing, ensure `prodbackend/ephe` is committed (it’s not in `.gitignore`).  
+- If you use a preloaded DB and it’s large, consider not committing `lyra_preloaded.db` (already in `.gitignore`) and relying on the non-store code path on Render.
+
+---
+
+## 8. One-line summary
+
+**You:** Push the repo. **Vercel** builds `lyra_app` and serves the frontend. **Render** builds `prodbackend` and runs the API. Set `VITE_API_URL` in Vercel to your Render API URL so the app talks to the deployed API.

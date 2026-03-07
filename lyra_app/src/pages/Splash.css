@@ -1,0 +1,21 @@
+.splash {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: #faf9f7;
+  position: relative;
+  overflow: hidden;
+  font: inherit;
+}
+
+.splash-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+}

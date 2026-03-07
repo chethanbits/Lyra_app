@@ -5,6 +5,7 @@ const tabs = [
   { path: '/app/home', label: 'Home', icon: '◇' },
   { path: '/app/planner', label: 'Planner', icon: '◈' },
   { path: '/app/calendar', label: 'Calendar', icon: '▣' },
+  { path: '/app/festivals', label: 'Festivals', icon: '🪔' },
   { path: '/app/settings', label: 'Settings', icon: '⚙' },
 ]
 

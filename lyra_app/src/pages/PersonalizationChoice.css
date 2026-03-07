@@ -33,9 +33,27 @@
 }
 
 .personalization-header h1 {
+  flex: 1;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent);
+}
+
+.header-spacer {
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.account-badge {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+  border-radius: 50%;
 }
 
 .personalization-subtitle {

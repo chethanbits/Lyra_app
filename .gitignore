@@ -73,3 +73,15 @@ delete_rows.py
 read_excel.py
 *_log.txt
 name_correction_cache.json
+
+# prodbackend (Render) – local/cache only, keep ephe + code
+prodbackend/__pycache__/
+prodbackend/venv/
+prodbackend/.env
+prodbackend/_tuning_guide_extract/
+prodbackend/_step_guide_extract/
+prodbackend/Lyra_Engine_Step_by_Step_Guide.docx
+prodbackend/cache.py.txt
+prodbackend/app.py.txt
+prodbackend/engine.py.txt
+prodbackend/lyra_preloaded.db

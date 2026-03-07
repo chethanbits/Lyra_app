@@ -66,7 +66,10 @@ export default function Welcome() {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={() => navigate('/personalization')}
+              onClick={() => {
+                try { localStorage.removeItem('lyra_logged_in') } catch (_) {}
+                navigate('/personalization')
+              }}
             >
               Explore Lyra (Guest Mode)
             </button>

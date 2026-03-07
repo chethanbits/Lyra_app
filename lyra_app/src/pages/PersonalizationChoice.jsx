@@ -3,8 +3,17 @@ import './PersonalizationChoice.css'
 
 export default function PersonalizationChoice() {
   const navigate = useNavigate()
+  const isLoggedIn = typeof localStorage !== 'undefined' && localStorage.getItem('lyra_logged_in') === '1'
 
   const handleMode = (mode) => {
+    try {
+      localStorage.setItem('lyra_experience_mode', mode)
+      if (mode === 'general') {
+        localStorage.removeItem('lyra_birth_date')
+        localStorage.removeItem('lyra_birth_time')
+        localStorage.removeItem('lyra_birth_place')
+      }
+    } catch (_) {}
     if (mode === 'personal') {
       navigate('/birth-details')
     } else {
@@ -24,6 +33,16 @@ export default function PersonalizationChoice() {
           ←
         </button>
         <h1>Choose Your Experience</h1>
+        {isLoggedIn ? (
+          <span className="account-badge" title="Account" aria-label="Logged in">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </span>
+        ) : (
+          <span className="header-spacer" />
+        )}
       </header>
 
       <p className="personalization-subtitle">

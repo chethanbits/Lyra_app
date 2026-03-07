@@ -9,7 +9,10 @@ export default function Registration() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Placeholder: in production would call auth API
+    try {
+      if (email) localStorage.setItem('lyra_user_email', email)
+      localStorage.setItem('lyra_logged_in', '1')
+    } catch (_) {}
     navigate('/personalization')
   }
 
@@ -56,11 +59,11 @@ export default function Registration() {
           />
         </div>
         <button type="submit" className="btn btn-primary btn-full">
-          Continue
+          Create account
         </button>
         <p className="reg-login">
           Already have an account?{' '}
-          <button type="button" className="link" onClick={() => navigate('/welcome')}>
+          <button type="button" className="link" onClick={() => navigate('/login')}>
             Log in
           </button>
         </p>

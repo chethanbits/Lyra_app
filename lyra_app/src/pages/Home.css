@@ -14,32 +14,70 @@
   margin-bottom: 16px;
 }
 
+.home-back-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--border);
+  color: var(--text);
+  border-radius: 12px;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.home-back-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.home-account-badge {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+  border-radius: 50%;
+}
+
 .guest-badge {
   font-size: 0.8125rem;
   color: var(--text-muted);
   font-weight: 500;
 }
 
-.streak-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--text);
-  background: rgba(217, 119, 6, 0.12);
-  color: #b45309;
-  padding: 6px 12px;
-  border-radius: 999px;
-}
-
-.streak-icon {
-  font-size: 0.875rem;
+.guest-badge.personal-badge {
+  color: var(--favorable, #0d9488);
 }
 
 .home-topbar .home-location {
   font-size: 0.8125rem;
   color: var(--text-muted);
+}
+
+.home-topbar .home-location-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+.home-topbar .home-location-btn:hover {
+  text-decoration: underline;
+}
+.home-topbar .home-location-btn:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.home-location-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: -8px 0 12px 0;
 }
 
 .home-datenav {
@@ -300,11 +338,27 @@
   border-top: 1px solid var(--border);
 }
 
-.timeline-start,
-.timeline-end {
+.timeline-endpoint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 0.75rem;
   color: var(--text-muted);
   flex-shrink: 0;
+}
+
+.timeline-endpoint .panchang-sun-icon {
+  margin-right: 0;
+}
+
+.timeline-endpoint .panchang-sun-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.timeline-time {
+  font-weight: 500;
+  color: var(--text);
 }
 
 .timeline-bar {
@@ -315,6 +369,44 @@
   position: relative;
 }
 
+.timeline-bar-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.timeline-bar-wrap .timeline-bar {
+  flex: none;
+}
+
+.timeline-rahu-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.timeline-rahu-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(185, 28, 28, 0.5);
+}
+
+.timeline-rahu {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 3px;
+  background: rgba(185, 28, 28, 0.35);
+  pointer-events: none;
+}
+
 .timeline-dot {
   position: absolute;
   top: 50%;
@@ -323,6 +415,73 @@
   height: 12px;
   background: var(--accent);
   border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-start,
+.timeline-end {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.panchang-profile-section {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.panchang-profile-hint {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.panchang-profile-section h3 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.tara-summary,
+.tara-result,
+.personality-nakshatra,
+.personality-detail,
+.personality-keywords {
+  font-size: 0.875rem;
+  color: var(--text);
+  margin: 4px 0;
+}
+
+.tara-category {
+  font-weight: 600;
+}
+
+.tara-category.tara-favorable {
+  color: var(--favorable, #059669);
+}
+
+.tara-category.tara-unfavorable {
+  color: var(--caution, #b91c1c);
+}
+
+.personality-keywords {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.panchang-sun-icon {
+  display: inline-flex;
+  vertical-align: middle;
+  margin-right: 4px;
+  color: var(--text-muted);
+}
+
+.panchang-sun-icon.sunset {
+  color: #ea580c;
 }
 
 /* Figma: Plan Event / 30-Day Outlook – light grey bg, subtle border, dark grey icon + text */

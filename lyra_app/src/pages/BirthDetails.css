@@ -49,6 +49,182 @@
   margin-bottom: 20px;
 }
 
+.birth-form .form-row .form-inline {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.birth-form .form-inline-with-btn {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 0;
+}
+
+.birth-form .form-group-city .city-row {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+  width: 100%;
+}
+
+/* City: one box with input + check at the end */
+.birth-form .form-group-city .city-input-wrap {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.birth-form .form-group-city .city-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  min-height: 48px;
+  padding: 14px 12px 14px 16px;
+  margin: 0;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.birth-form .form-group-city .city-input::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+.birth-form .form-group-city .city-input::-webkit-input-placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+.birth-form .form-group-city .city-input::-moz-placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+.birth-form .form-group-city .city-input:-ms-input-placeholder {
+  color: var(--text-muted);
+}
+
+.birth-form .form-group-city .city-input:focus {
+  outline: none;
+}
+
+.birth-form .form-group-city .city-input-wrap:focus-within {
+  border-color: var(--accent);
+}
+
+.birth-form .form-group-city .city-check-btn {
+  flex-shrink: 0;
+  width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--border);
+  border: none;
+  border-left: 2px solid var(--border);
+  color: var(--text);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.birth-form .form-group-city .city-check-btn:hover:not(:disabled) {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.birth-form .form-group-city .city-check-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.birth-form .form-group-city .city-check-icon {
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Coordinates: separate box below, same style as city */
+.birth-form .form-group-city .coordinates-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.birth-form .form-group-city .coordinates-box {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: 14px 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 12px;
+  font-size: 1rem;
+  border: 2px solid var(--border);
+}
+
+.birth-form .form-group-city .coordinates-box--blocked {
+  background: var(--border);
+  color: var(--text-muted);
+  border-style: dashed;
+  pointer-events: none;
+}
+
+.birth-form .form-group-city .coordinates-box--filled {
+  background: var(--bg-card);
+  color: var(--text);
+}
+
+.birth-form .form-group-city .coordinates-placeholder {
+  opacity: 0.85;
+}
+
+.birth-form .form-group-city .city-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.birth-form .form-group-city .lookup-btn {
+  padding: 10px 20px;
+  font-size: 0.9375rem;
+}
+
+.birth-form .form-error {
+  font-size: 0.8125rem;
+  color: var(--caution, #b45309);
+  margin-top: 6px;
+}
+
+.birth-form .form-row .form-inline input {
+  flex: 1;
+  min-width: 70px;
+}
+
+.birth-form .form-hint {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.birth-form .form-hint-coords {
+  color: var(--text);
+  opacity: 0.9;
+}
+
 .birth-form label {
   display: block;
   font-size: 0.875rem;
@@ -78,4 +254,23 @@
   padding: 14px;
   border-radius: 12px;
   font-weight: 600;
+}
+
+.birth-form .btn-secondary {
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 500;
+  background: var(--border);
+  color: var(--text);
+  border: 2px solid var(--border);
+}
+
+.birth-form .btn-secondary:hover:not(:disabled) {
+  background: var(--text-muted);
+  color: var(--bg);
+}
+
+.birth-form .btn-secondary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }

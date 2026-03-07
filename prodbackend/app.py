@@ -118,10 +118,11 @@ app = FastAPI(
     description="PyJHora-based Panchang + deterministic scoring API for Lyra frontend",
 )
 
-# Allow frontend (Vite dev server, Android emulator) to call the API
+# Allow frontend (Vite dev server, Android emulator, Vercel preview/production)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

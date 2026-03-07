@@ -10,6 +10,7 @@ geopy>=2.4.0
 pyswisseph>=2.10.0
 geocoder>=1.38.0
 timezonefinder>=6.0
+pytz
 
 # --- Config Parsing ---
 pyyaml==6.0.1

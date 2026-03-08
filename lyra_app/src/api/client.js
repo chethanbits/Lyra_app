@@ -21,7 +21,15 @@ async function request(path, params = {}) {
     if (v != null && v !== '') url.searchParams.set(k, String(v));
   });
   const res = await fetch(url.toString(), { headers: { Accept: 'application/json' } });
-  if (!res.ok) throw new Error(`API ${res.status}: ${res.statusText}`);
+  if (!res.ok) {
+    let detail = res.statusText;
+    try {
+      const body = await res.json();
+      if (body && typeof body.detail === 'string') detail = body.detail;
+      else if (body && typeof body.detail === 'object' && body.detail?.message) detail = body.detail.message;
+    } catch (_) {}
+    throw new Error(`API ${res.status}: ${detail}`);
+  }
   return res.json();
 }
 

@@ -1,6 +1,7 @@
 import { useMemo, useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getRange } from '../api/client'
+import { getMockRangeResult } from '../data/mockDay'
 import {
   getEventsForDate,
   getEventsForMonth,
@@ -134,7 +135,10 @@ export default function Festivals() {
         if (!cancelled) setRangeResults(Array.isArray(data) ? data : [])
       })
       .catch((err) => {
-        if (!cancelled) setError(err.message)
+        if (!cancelled) {
+          setError(err.message)
+          setRangeResults(getMockRangeResult(start, end))
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false)

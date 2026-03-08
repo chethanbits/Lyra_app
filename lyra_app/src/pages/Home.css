@@ -546,6 +546,27 @@
   color: var(--text-muted);
 }
 
+.home-error.home-demo-banner {
+  padding: 10px 16px;
+  margin-bottom: 12px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 10px;
+  font-size: 0.875rem;
+}
+
+.home-demo-banner .demo-badge {
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0;
+}
+
+.home-demo-banner .hint {
+  font-size: 0.75rem;
+  margin-top: 4px;
+  opacity: 0.85;
+}
+
 .spinner {
   width: 40px;
   height: 40px;

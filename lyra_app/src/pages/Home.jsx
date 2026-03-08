@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getDay, getProfileDay, BASE } from '../api/client'
+import { getMockDayResult } from '../data/mockDay'
 import { fromDDMMMYYYYToISO } from '../utils/date'
 import './Home.css'
 
@@ -232,7 +233,11 @@ export default function Home() {
         }
       })
       .catch((err) => {
-        if (!cancelled) setError(err.message)
+        if (!cancelled) {
+          setError(err.message)
+          const dateStr = `${params.year}-${String(params.month).padStart(2, '0')}-${String(params.day).padStart(2, '0')}`
+          setDayResult(getMockDayResult(dateStr))
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -330,14 +335,13 @@ export default function Home() {
       )}
 
       {error && (
-        <div className="home-error">
-          <p>{error}</p>
-          <p className="hint">API base: {BASE}</p>
-          <p className="hint">Ensure the API is running, emulator is up, and you ran: adb reverse tcp:8000 tcp:8000</p>
+        <div className="home-error home-demo-banner">
+          <p className="demo-badge">Sample data — API unavailable</p>
+          <p className="hint">UI is shown with demo values. API: {BASE}</p>
         </div>
       )}
 
-      {!loading && !error && dayResult && panchanga && (
+      {!loading && dayResult && panchanga && (
         <>
           {/* Alignment Score card - guest score or Profile personal alignment */}
           <section className={`score-card score-card-premium ${label?.borderClass || ''}`}>

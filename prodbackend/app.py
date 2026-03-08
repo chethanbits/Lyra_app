@@ -216,6 +216,8 @@ def dataclass_to_dict(obj: Any) -> Any:
 
 
 def engine_error_to_http(e: Exception) -> HTTPException:
+    import traceback
+    traceback.print_exc()
     if isinstance(e, EngineError):
         return HTTPException(
             status_code=400,

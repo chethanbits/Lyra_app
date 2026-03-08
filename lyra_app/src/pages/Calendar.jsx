@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { getHeatmap } from '../api/client'
+import { getMockHeatmapResult } from '../data/mockDay'
 import { getEventsForDate } from '../data/festivals'
 import './Calendar.css'
 
@@ -80,13 +81,18 @@ export default function Calendar() {
       .then((rows) => {
         if (cancelled) return
         const map = {}
-        rows.forEach((r) => {
-          map[r.date] = r
-        })
+        rows.forEach((r) => { map[r.date] = r })
         setHeatmap(map)
+        setError(null)
       })
       .catch((e) => {
-        if (!cancelled) setError(e.message || 'Failed to load heatmap')
+        if (!cancelled) {
+          setError(e.message || 'Failed to load heatmap')
+          const mockRows = getMockHeatmapResult(start, end)
+          const map = {}
+          mockRows.forEach((r) => { map[r.date] = r })
+          setHeatmap(map)
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -190,9 +196,7 @@ export default function Calendar() {
       </div>
 
       {error && (
-        <p className="calendar-hint error">
-          {error}
-        </p>
+        <p className="calendar-hint error">Sample data — {error}</p>
       )}
     </div>
   )
